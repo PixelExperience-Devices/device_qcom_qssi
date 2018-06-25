@@ -28,17 +28,17 @@ TARGET_HW_DISK_ENCRYPTION := false
 
 TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
 
-BOARD_SECCOMP_POLICY := device/qcom/$(VENDOR_QTI_PLATFORM)/seccomp
+BOARD_SECCOMP_POLICY := device/qcom/$(PRODUCT_DEVICE)/seccomp
 
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
--include $(QCPATH)/common/qssi/BoardConfigVendor.mk
+-include $(QCPATH)/common/$(VENDOR_QTI_PLATFORM)/BoardConfigVendor.mk
 
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := false
 BOARD_USES_WIPOWER := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/qssi
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common # to be relocated to BT
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
@@ -55,7 +55,7 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS ?= boot system
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
+#BOARD_USES_RECOVERY_AS_BOOT := true
 else
 # Non-A/B section. Define cache and recovery partition variables.
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
@@ -64,7 +64,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 endif
 
 #Enable compilation of oem-extensions to recovery
-#These need to be explicitly 
+#These need to be explicitly
 ifneq ($(AB_OTA_UPDATER),true)
     TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
 endif
@@ -160,7 +160,8 @@ ADD_RADIO_FILES := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 
 #To use libhealthd.msm instead of libhealthd.default
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm 
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+
 #Enable INTERACTION_BOOST
 TARGET_USES_INTERACTION_BOOST := true
 
@@ -179,3 +180,5 @@ TARGET_ENABLE_MEDIADRM_64 := true
 #All vendor APK will be compiled against system_current API set.
 BOARD_SYSTEMSDK_VERSIONS:=28
 BOARD_VNDK_VERSION:= current
+
+MM_CORE_TARGET := default

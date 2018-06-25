@@ -6,7 +6,7 @@ PRODUCT_PRIVATE_KEY := vendor/qcom/opensource/core-utils/build/qcom.key
 
 # Board platforms lists to be used for
 # TARGET_BOARD_PLATFORM specific featurization
-QCOM_BOARD_PLATFORMS += qssi
+QCOM_BOARD_PLATFORMS += $(VENDOR_QTI_PLATFORM)
 
 QSD8K_BOARD_PLATFORMS := qsd8k
 
@@ -777,8 +777,9 @@ endif
 
 # enable overlays to use our version of
 # source/resources etc.
-DEVICE_PACKAGE_OVERLAYS += device/qcom/qssi/device/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/qcom/qssi/product/overlay
+# Temporary for QSSI until RRO migration
+DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
 
 # Set up flags to determine the kernel version
 ifeq ($(TARGET_KERNEL_VERSION),)

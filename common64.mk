@@ -1,8 +1,4 @@
-ifeq ($(VENDOR_QTI_PLATFORM),)
-  $(error VENDOR_QTI_PLATFORM must be defined to the proper Snapdragon platform)
-endif
-
-$(call inherit-product, device/qcom/$(VENDOR_QTI_PLATFORM)/base.mk)
+$(call inherit-product, device/qcom/$(VENDOR_QTI_DEVICE)/base.mk)
 
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit

@@ -1,7 +1,11 @@
+DEVICE_DIR := $(call my-dir)
+
 ##########
 # QTI platform name
 # - use for TARGET_BOARD_PLATFORM logic during compile-time and runtime
-VENDOR_QTI_PLATFORM := qssi
+# - for QSSI target, the reference chipset for compilation
+VENDOR_QTI_PLATFORM := sdm845
+VENDOR_QTI_DEVICE := qssi
 
 ##########
 # QSSI configuration
@@ -14,7 +18,11 @@ BOARD_AVB_ENABLE := true
 TARGET_DEFINES_DALVIK_HEAP := true
 
 
-$(call inherit-product, device/qcom/qssi/common64.mk)
+$(call inherit-product, device/qcom/$(VENDOR_QTI_DEVICE)/common64.mk)
+
+PRODUCT_NAME := qssi
+PRODUCT_DEVICE := $(VENDOR_QTI_DEVICE)
+PRODUCT_MODEL := QSSI system image for arm64
 
 #Inherit all except heap growth limit from phone-xhdpi-2048-dalvik-heap.mk
 PRODUCT_PROPERTY_OVERRIDES  += \
@@ -32,21 +40,14 @@ PRODUCT_PROPERTY_OVERRIDES  += \
 PRODUCT_PROPERTY_OVERRIDES  += \
   ro.opengles.version=196610
 
-PRODUCT_NAME := qssi
-PRODUCT_DEVICE := qssi
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := QSSI system image for arm64
-
-#Initial bringup flags
-TARGET_USES_AOSP := true
-TARGET_USES_AOSP_FOR_AUDIO := true
-TARGET_USES_QCOM_BSP := false
-BOARD_HAVE_QCOM_FM := false
-
 # Default A/B configuration.
 ENABLE_AB ?= true
 
 TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_VERSION ?= $(patsubst kernel/msm-%,%,$(firstword $(wildcard kernel/msm-*)))
+ifeq ($(TARGET_KERNEL_VERSION),)
+  $(error Unable to find a usable kernel tree at kernel/msm-*)
+endif
 
 TARGET_USES_NQ_NFC := false
 ifeq ($(TARGET_USES_NQ_NFC),true)
@@ -98,8 +99,8 @@ PRODUCT_PACKAGES += update_engine \
 PRODUCT_PACKAGES_DEBUG += bootctl
 endif
 
-DEVICE_MANIFEST_FILE := device/qcom/qssi/manifest.xml
-DEVICE_MATRIX_FILE   := device/qcom/qssi/compatibility_matrix.xml
+#DEVICE_MANIFEST_FILE := device/qcom/qssi/manifest.xml
+#DEVICE_MATRIX_FILE   := device/qcom/qssi/compatibility_matrix.xml
 
 #ANT+ stack
 PRODUCT_PACKAGES += \
