@@ -115,3 +115,6 @@ ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
 include device/qcom/wlan/msmnile/AndroidBoardWlan.mk
 endif
 endif
+
+#create firmware directory for qssi
+$(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware)
