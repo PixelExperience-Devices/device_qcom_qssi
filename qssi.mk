@@ -1,6 +1,26 @@
 # Enable AVB 2.0
 BOARD_AVB_ENABLE := true
 
+# define flag to determine the kernel
+TARGET_KERNEL_VERSION := $(shell ls kernel | grep "msm-*" | sed 's/msm-//')
+
+# Set TARGET_USES_NEW_ION for 4.14 and higher kernels
+ifeq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
+TARGET_USES_NEW_ION := false
+else
+TARGET_USES_NEW_ION := true
+endif
+
+KERNEL_DEFCONFIG := sdm845_defconfig
+ifeq ($(wildcard kernel/msm-$(TARGET_KERNEL_VERSION)/arch/arm64/configs/$(KERNEL_DEFCONFIG)),)
+KERNEL_DEFCONFIG := $(shell ls ./kernel/msm-$(TARGET_KERNEL_VERSION)/arch/arm64/configs/vendor | grep sm8..._defconfig)
+endif
+
+BUILD_BROKEN_PHONY_TARGETS := true
+BUILD_BROKEN_DUP_RULES := true
+TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
+export TEMPORARY_DISABLE_PATH_RESTRICTIONS
+
 VENDOR_QTI_PLATFORM := msmnile
 VENDOR_QTI_DEVICE := qssi
 
@@ -51,7 +71,6 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 #TARGET_USES_QTIC_EXTENSION := false
 
 endif
-TARGET_KERNEL_VERSION := 4.14
 
 #Enable llvm support for kernel
 KERNEL_LLVM_SUPPORT := true
@@ -90,15 +109,16 @@ ifneq ($(strip $(QCPATH)),)
     PRODUCT_BOOT_JARS += WfdCommon
 endif
 
-ifneq ($(strip $(QCPATH)),)
-    PRODUCT_BOOT_JARS += libprotobuf-java_mls
-endif
+#Project is missing on sdm845, comment it for now
+#ifneq ($(strip $(QCPATH)),)
+#    PRODUCT_BOOT_JARS += libprotobuf-java_mls
+#endif
 
-
+# Video codec configuration files
+ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
 PRODUCT_PROPERTY_OVERRIDES += \
     media.settings.xml=/vendor/etc/media_profiles_vendor.xml
-
-
+endif #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
@@ -170,10 +190,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
     android.hardware.broadcastradio@1.0-impl
-
-
-# Strongbox support
-
 
 # Camera configuration file. Shared by passthrough/binderized camera HAL
 PRODUCT_PACKAGES += camera.device@3.2-impl
@@ -267,6 +283,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.crypto.volume.filenames_mode = "aes-256-cts" \
 ro.crypto.allow_encrypt_override = true
 
+TARGET_USES_QCOM_DISPLAY_BSP := true
+
+ifeq ($(TARGET_USES_NEW_ION),true)
 AUDIO_FEATURE_ENABLED_DLKM := true
+else
+AUDIO_FEATURE_ENABLED_DLKM := false
+endif
 
 $(call inherit-product, build/make/target/product/product_launched_with_p.mk)

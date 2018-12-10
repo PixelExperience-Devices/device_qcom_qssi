@@ -31,6 +31,8 @@ TARGET_NO_KERNEL := false
 
 TARGET_USES_IOPHAL := true
 
+-include $(QCPATH)/common/msmnile/BoardConfigVendor.mk
+
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := false
 BOARD_USES_WIPOWER := true
@@ -90,6 +92,15 @@ ifeq ($(KERNEL_DEFCONFIG),)
 endif
 
 BOARD_VENDOR_KERNEL_MODULES := \
+    $(KERNEL_MODULES_OUT)/wil6210.ko \
+    $(KERNEL_MODULES_OUT)/msm_11ad_proxy.ko \
+    $(KERNEL_MODULES_OUT)/rdbg.ko \
+    $(KERNEL_MODULES_OUT)/mpq-adapter.ko \
+    $(KERNEL_MODULES_OUT)/mpq-dmx-hw-plugin.ko \
+    $(KERNEL_MODULES_OUT)/tspp.ko
+
+ifeq ($(AUDIO_FEATURE_ENABLED_DLKM),true)
+BOARD_VENDOR_KERNEL_MODULES += \
     $(KERNEL_MODULES_OUT)/audio_apr.ko \
     $(KERNEL_MODULES_OUT)/audio_wglink.ko \
     $(KERNEL_MODULES_OUT)/audio_q6_pdr.ko \
@@ -111,19 +122,7 @@ BOARD_VENDOR_KERNEL_MODULES := \
     $(KERNEL_MODULES_OUT)/audio_wcd9360.ko \
     $(KERNEL_MODULES_OUT)/audio_wcd_spi.ko \
     $(KERNEL_MODULES_OUT)/audio_native.ko \
-    $(KERNEL_MODULES_OUT)/audio_machine_msmnile.ko \
-    $(KERNEL_MODULES_OUT)/wil6210.ko \
-    $(KERNEL_MODULES_OUT)/msm_11ad_proxy.ko \
-    $(KERNEL_MODULES_OUT)/rdbg.ko \
-    $(KERNEL_MODULES_OUT)/mpq-adapter.ko \
-    $(KERNEL_MODULES_OUT)/mpq-dmx-hw-plugin.ko \
-    $(KERNEL_MODULES_OUT)/tspp.ko \
-
-# install lkdtm only for userdebug and eng build variants
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-    ifeq (,$(findstring perf_defconfig, $(KERNEL_DEFCONFIG)))
-        BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/lkdtm.ko
-    endif
+    $(KERNEL_MODULES_OUT)/audio_machine_msmnile.ko
 endif
 
 TARGET_USES_ION := true
