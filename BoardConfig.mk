@@ -222,3 +222,10 @@ BUILD_BROKEN_DUP_RULES := true
 BOARD_VNDK_VERSION:=current
 Q_BU_DISABLE_MODULE := true
 
+
+#################################################################################
+# This is the End of BoardConfig.mk file.
+# Now, Pickup other split Board.mk files:
+#################################################################################
+-include vendor/qcom/defs/board-defs/system/*.mk
+#################################################################################
