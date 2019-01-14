@@ -28,6 +28,8 @@ VENDOR_QTI_DEVICE := qssi
 #Single system image project structure
 TARGET_USES_QSSI := true
 
+ENABLE_AB ?= true
+
 # Enable chain partition for system, to facilitate system-only OTA in Treble.
 BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
@@ -152,6 +154,7 @@ PRODUCT_PACKAGES += $(AUDIO_DLKM)
 
 PRODUCT_PACKAGES += fs_config_files
 
+ifeq ($(ENABLE_AB), true)
 #A/B related packages
 PRODUCT_PACKAGES += update_engine \
     update_engine_client \
@@ -163,7 +166,7 @@ PRODUCT_PACKAGES += update_engine \
 
 #Boot control HAL test app
 PRODUCT_PACKAGES_DEBUG += bootctl
-
+endif
 
 #Healthd packages
 PRODUCT_PACKAGES += \
