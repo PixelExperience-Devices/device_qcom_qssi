@@ -285,11 +285,6 @@ GPS_HARDWARE += android.hardware.gnss@1.1-service-qti
 GPS_HARDWARE += android.hardware.gnss@2.0-impl-qti
 GPS_HARDWARE += android.hardware.gnss@2.0-service-qti
 
-HIDL_WRAPPER := qti-telephony-hidl-wrapper
-HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
-
-QTI_TELEPHONY_UTILS := qti-telephony-utils
-QTI_TELEPHONY_UTILS += qti_telephony_utils.xml
 
 #HDMID
 HDMID := hdmid
@@ -329,7 +324,6 @@ INIT += init.qcom.class_core.sh
 INIT += init.class_main.sh
 INIT += init.qcom.wifi.sh
 INIT += vold.fstab
-INIT += init.qcom.ril.path.sh
 INIT += init.qcom.usb.rc
 INIT += init.msm.usb.configfs.rc
 INIT += init.qcom.usb.sh
@@ -728,8 +722,6 @@ SENSORS_HARDWARE += sensors.msm8996_auto
 SOFTAP := libQWiFiSoftApCfg
 SOFTAP += libqsap_sdk
 
-#STK
-STK := Stk
 
 #STM LOG
 STMLOG := libstm-log
@@ -798,14 +790,6 @@ RCS += rcs_service_aidl_static
 RCS += rcs_service_api
 RCS += rcs_service_api.xml
 
-#IMS SETTINGS
-IMS_SETTINGS := imssettings
-
-#IMS Extension module for Android Telephony
-IMS_EXT := ims-ext-common
-IMS_EXT += ims_ext_common.xml
-IMS_EXT += ConfURIDialer
-
 #CRDA
 CRDA := crda
 CRDA += regdbdump
@@ -835,8 +819,6 @@ WIGIG += libwigig_pciaccess
 #FD_LEAK
 FD_LEAK := libc_leak_detector
 
-TELEPHONY_DBG := NrNetworkSettingApp
-
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
     DeskClock \
@@ -844,7 +826,6 @@ PRODUCT_PACKAGES := \
     Calculator \
     Calendar \
     Camera \
-    CellBroadcastReceiver \
     CertInstaller \
     DrmProvider \
     Email \
@@ -852,7 +833,6 @@ PRODUCT_PACKAGES := \
     LatinIME \
     Music \
     netutils-wrapper-1.0 \
-    Phone \
     Provision \
     Protips \
     QuickSearchBox \
@@ -864,7 +844,6 @@ PRODUCT_PACKAGES := \
     SyncProvider \
     SoundRecorder \
     IM \
-    VoiceDialer \
     FM2 \
     FMRecord \
     SnapdragonGallery \
@@ -872,9 +851,7 @@ PRODUCT_PACKAGES := \
     VideoEditor \
     SnapdragonLauncher \
     a4wpservice \
-    wipowerservice \
-    Mms \
-    QtiDialer
+    wipowerservice
 
 ifneq ($(BOARD_HAVE_BLUETOOTH),false)
 PRODUCT_PACKAGES += \
@@ -929,7 +906,6 @@ PRODUCT_PACKAGES += $(FASTPOWERON)
 PRODUCT_PACKAGES += $(FM)
 PRODUCT_PACKAGES += $(GPS_HARDWARE)
 PRODUCT_PACKAGES += $(HDMID)
-PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 PRODUCT_PACKAGES += $(HOSTAPD)
 PRODUCT_PACKAGES += $(I420CC)
 PRODUCT_PACKAGES += $(INIT)
@@ -972,11 +948,9 @@ PRODUCT_PACKAGES += $(OPENCORE)
 PRODUCT_PACKAGES += $(PPP)
 PRODUCT_PACKAGES += $(PROTOBUF)
 PRODUCT_PACKAGES += $(PVOMX)
-PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
 PRODUCT_PACKAGES += $(RF4CE)
 PRODUCT_PACKAGES += $(SENSORS_HARDWARE)
 #PRODUCT_PACKAGES += $(SOFTAP)
-PRODUCT_PACKAGES += $(STK)
 PRODUCT_PACKAGES += $(STMLOG)
 PRODUCT_PACKAGES += $(THERMAL_HAL)
 PRODUCT_PACKAGES += $(TSLIB_EXTERNAL)
@@ -988,14 +962,12 @@ PRODUCT_PACKAGES += $(ZLIB)
 PRODUCT_HOST_PACKAGES += $(ZLIB_HOST)
 PRODUCT_PACKAGES += $(VT_JNI)
 PRODUCT_PACKAGES += $(VT_QTI_PERMISSIONS)
-PRODUCT_PACKAGES += $(IMS_SETTINGS)
 PRODUCT_PACKAGES += $(CRDA)
 PRODUCT_PACKAGES += $(WLAN)
 PRODUCT_PACKAGES += $(IPACM)
 PRODUCT_PACKAGES += $(FSTMAN)
 PRODUCT_PACKAGES += $(WIGIG)
 PRODUCT_PACKAGES += $(FD_LEAK)
-PRODUCT_PACKAGES += $(IMS_EXT)
 # Temp workarround for b/36603742
 PRODUCT_PACKAGES += android.hidl.manager@1.0-java
 
@@ -1025,8 +997,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# Qcril configuration file
-PRODUCT_PACKAGES += qcril.db
 
 # MSM updater library
 PRODUCT_PACKAGES += librecovery_updater_msm
@@ -1049,15 +1019,11 @@ PRODUCT_PACKAGES_DEBUG += init.qcom.debug.sh
 
 #NANOPB_LIBRARY_NAME := libnanopb-c-2.8.0
 
-PRODUCT_PACKAGES_DEBUG += $(TELEPHONY_DBG)
-
 PRODUCT_COPY_FILES := \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml\
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml\
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
@@ -1169,9 +1135,6 @@ endif
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
 
-ifeq ($(TARGET_USES_QCOM_BSP_ATEL),true)
-    PRODUCT_PROPERTY_OVERRIDES += persist.radio.multisim.config=dsds
-endif
 
 # VNDK-SP:
 PRODUCT_PACKAGES += \

@@ -112,7 +112,6 @@ PRODUCT_BOOT_JARS += tcmiface
 PRODUCT_BOOT_JARS += telephony-ext
 PRODUCT_PACKAGES += telephony-ext
 
-
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 
 TARGET_DISABLE_DASH := true
@@ -244,7 +243,6 @@ DEVICE_PACKAGE_OVERLAYS += device/qcom/qssi/overlay
 endif
 
 
-ENABLE_VENDOR_RIL_SERVICE := true
 #Enable vndk-sp Libraries
 PRODUCT_PACKAGES += vndk_package
 
