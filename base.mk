@@ -699,6 +699,15 @@ MM_VIDEO += mm-video-encdrv-test
 MM_VIDEO += ExoplayerDemo
 MM_VIDEO += libaacwrapper
 
+# Codec2.0
+MM_VIDEO += libqcodec2
+MM_VIDEO += qcodec2_test
+MM_VIDEO += vendor.qti.media.c2@1.0-service
+MM_VIDEO += vendor.qti.media.c2@1.0-service.rc
+MM_VIDEO += media_codecs_c2.xml
+MM_VIDEO += libmedia_codecserviceregistrant
+MM_VIDEO += libsfplugin_ccodec
+
 #NQ_NFC
 NQ_NFC := NQNfcNci
 NQ_NFC += libnqnfc-nci
@@ -1132,6 +1141,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml \
     device/qcom/common/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     device/qcom/common/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
