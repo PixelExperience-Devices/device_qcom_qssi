@@ -278,23 +278,6 @@ FM += fm_helium
 FM += ftm_fm_lib
 FM += libfm-hci
 
-#GPS
-GPS_HARDWARE := gps.conf
-GPS_HARDWARE += gps.default
-GPS_HARDWARE += libgps.utils
-GPS_HARDWARE += libloc_api_v02
-GPS_HARDWARE += libloc_ds_api
-GPS_HARDWARE += libgnsspps
-GPS_HARDWARE += libgnss
-GPS_HARDWARE += liblocation_api
-GPS_HARDWARE += android.hardware.gnss@1.0-impl-qti
-GPS_HARDWARE += android.hardware.gnss@1.0-service-qti
-GPS_HARDWARE += android.hardware.gnss@1.1-impl-qti
-GPS_HARDWARE += android.hardware.gnss@1.1-service-qti
-GPS_HARDWARE += android.hardware.gnss@2.0-impl-qti
-GPS_HARDWARE += android.hardware.gnss@2.0-service-qti
-
-
 #HDMID
 HDMID := hdmid
 
@@ -904,7 +887,6 @@ PRODUCT_PACKAGES += $(EBTABLES)
 PRODUCT_PACKAGES += $(EXTENDEDMEDIA_EXT)
 PRODUCT_PACKAGES += $(FASTPOWERON)
 PRODUCT_PACKAGES += $(FM)
-PRODUCT_PACKAGES += $(GPS_HARDWARE)
 PRODUCT_PACKAGES += $(HDMID)
 PRODUCT_PACKAGES += $(HOSTAPD)
 PRODUCT_PACKAGES += $(I420CC)
