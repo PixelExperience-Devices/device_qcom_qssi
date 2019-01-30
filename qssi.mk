@@ -79,7 +79,6 @@ BOARD_FRP_PARTITION_NAME := frp
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
 
--include $(QCPATH)/common/config/qtic-config.mk
 -include hardware/qcom/display/config/msmnile.mk
 
 
