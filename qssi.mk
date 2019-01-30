@@ -110,6 +110,7 @@ PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
 # Audio configuration file
 -include $(TOPDIR)hardware/qcom/audio/configs/msmnile/msmnile.mk
+-include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/msmnile/msmnile.mk
 
 #Audio DLKM
 AUDIO_DLKM := audio_apr.ko
