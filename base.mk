@@ -46,8 +46,6 @@ BOARD_HAVE_QCOM_FM ?= true
 
 
 # Boot additions
-#Android Telephony library
-PRODUCT_BOOT_JARS += qtiNetworkLib
 ifeq ($(strip $(TARGET_USES_NQ_NFC)),true)
 PRODUCT_BOOT_JARS += com.nxp.nfc.nq
 endif
@@ -875,9 +873,7 @@ PRODUCT_PACKAGES := \
     VideoEditor \
     a4wpservice \
     wipowerservice \
-    QtiDialer \
-    qtiNetworkLib \
-    TestApp5G
+    QtiDialer
 
 ifneq ($(BOARD_HAVE_BLUETOOTH),false)
 PRODUCT_PACKAGES += \
