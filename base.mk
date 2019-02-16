@@ -1133,3 +1133,6 @@ PRODUCT_PACKAGES += libvndfwk_detect_jni.qti
 PRODUCT_PACKAGES += libqti_vndfwk_detect
 PRODUCT_PACKAGES += libvndfwk_detect_jni.qti.vendor
 PRODUCT_PACKAGES += libqti_vndfwk_detect.vendor
+
+# TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
+BUILD_BROKEN_ENG_DEBUG_TAGS := true
