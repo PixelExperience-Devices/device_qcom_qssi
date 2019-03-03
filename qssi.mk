@@ -1,6 +1,10 @@
 # Enable AVB 2.0
 BOARD_AVB_ENABLE := true
 
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/google/av \
+    hardware/google/interfaces
+
 # define flag to determine the kernel
 TARGET_KERNEL_VERSION := $(shell ls kernel | grep "msm-*" | sed 's/msm-//')
 
