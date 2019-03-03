@@ -590,6 +590,7 @@ MM_VIDEO += vendor.qti.media.c2@1.0-service.rc
 MM_VIDEO += media_codecs_c2.xml
 MM_VIDEO += libmedia_codecserviceregistrant
 MM_VIDEO += libsfplugin_ccodec
+MM_VIDEO += com.android.media.swcodec
 
 #NQ_NFC
 NQ_NFC := NQNfcNci
