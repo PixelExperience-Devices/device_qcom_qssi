@@ -79,11 +79,116 @@ MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909 
 #List of targets that use master side content protection
 MASTER_SIDE_CP_TARGET_LIST := msm8996 msm8998 sdm660 sdm845 apq8098_latv sdm710 qcs605 msmnile $(MSMSTEPPE)
 
+# Below projects/packages with LOCAL_MODULEs will be used by
+# PRODUCT_PACKAGES to build LOCAL_MODULEs that are tagged with
+# optional tag, which will not be available on target unless
+# explicitly list here. Where project corresponds to the vars here
+# in CAPs.
+
+#ALSA
+ALSA_HARDWARE := alsa.msm8960
+ALSA_HARDWARE += alsa.msm8974
+ALSA_HARDWARE += alsa.msm8226
+ALSA_HARDWARE += alsa.msm8610
+ALSA_HARDWARE += alsa.apq8084
+
+ALSA_UCM := snd_soc_msm
+ALSA_UCM += snd_soc_msm_2x
+ALSA_UCM += snd_soc_msm_2x_mpq
+ALSA_UCM += snd_soc_msm_2x_Fusion3
+ALSA_UCM += snd_soc_msm_Sitar
+ALSA_UCM += snd_soc_msm_auxpcm
+ALSA_UCM += snd_soc_msm_2x_auxpcm
+ALSA_UCM += snd_soc_msm_2x_mpq_auxpcm
+ALSA_UCM += snd_soc_msm_2x_Fusion3_auxpcm
+ALSA_UCM += snd_soc_msm_Sitar_auxpcm
+ALSA_UCM += snd_soc_msm_Taiko
+ALSA_UCM += snd_soc_msm_Taiko_CDP
+ALSA_UCM += snd_soc_msm_Taiko_Fluid
+ALSA_UCM += snd_soc_msm_Taiko_liquid
+ALSA_UCM += snd_soc_apq_Taiko_DB
+ALSA_UCM += snd_soc_msm_I2SFusion
+ALSA_UCM += snd_soc_msm_Tapan
+ALSA_UCM += snd_soc_msm_TapanLite
+ALSA_UCM += snd_soc_msm_Tapan_SKUF
+ALSA_UCM += snd_soc_msm_TapanLite_SKUF
+ALSA_UCM += snd_soc_msm_8x10_wcd
+ALSA_UCM += snd_soc_msm_8x10_wcd_skuab
+ALSA_UCM += snd_soc_msm_8x10_wcd_skuaa
+ALSA_UCM += snd_soc_msm_samarium_Tapan
+
 #ANGLE
 ANGLE := libangle
 
 #APPOPS_POLICY
 APPOPS_POLICY := appops_policy.xml
+
+AUDIO_HARDWARE := audio.primary.mpq8064
+AUDIO_HARDWARE += audio.primary.apq8084
+AUDIO_HARDWARE += audio.primary.msm8960
+AUDIO_HARDWARE += audio.primary.msm8974
+AUDIO_HARDWARE += audio.primary.msm8226
+AUDIO_HARDWARE += audio.primary.msm8660
+AUDIO_HARDWARE += audio.primary.msm8610
+#AUDIO_HARDWARE += audio.primary.msm7627_surf
+AUDIO_HARDWARE += audio.primary.msm7627a
+AUDIO_HARDWARE += audio.primary.msm7630_surf
+AUDIO_HARDWARE += audio.primary.msm7630_fusion
+#AUDIO_HARDWARE += audio.primary.default
+AUDIO_HARDWARE += audio.a2dp.default
+AUDIO_HARDWARE += audio.usb.default
+AUDIO_HARDWARE += audio.r_submix.default
+AUDIO_HARDWARE += audio.primary.mpq8092
+AUDIO_HARDWARE += audio.primary.msm8916
+AUDIO_HARDWARE += audio.primary.msm8909
+AUDIO_HARDWARE += audio.primary.msm8994
+AUDIO_HARDWARE += audio.primary.msm8992
+AUDIO_HARDWARE += audio.primary.msm8996
+AUDIO_HARDWARE += audio.primary.msm8952
+AUDIO_HARDWARE += audio.primary.msm8937
+AUDIO_HARDWARE += audio.primary.msm8953
+AUDIO_HARDWARE += audio.primary.msmgold
+AUDIO_HARDWARE += audio.primary.msm8998
+AUDIO_HARDWARE += audio.primary.sdm660
+AUDIO_HARDWARE += audio.primary.sdm845
+AUDIO_HARDWARE += audio.primary.apq8098_latv
+AUDIO_HARDWARE += audio.primary.sdm710
+AUDIO_HARDWARE += audio.primary.qcs605
+AUDIO_HARDWARE += audio.primary.msmnile
+AUDIO_HARDWARE += audio.primary.$(MSMSTEPPE)
+#
+AUDIO_POLICY := audio_policy.mpq8064
+AUDIO_POLICY += audio_policy.apq8084
+AUDIO_POLICY += audio_policy.msm8960
+AUDIO_POLICY += audio_policy.msm8974
+AUDIO_POLICY += audio_policy.msm8226
+AUDIO_POLICY += audio_policy.msm8660
+AUDIO_POLICY += audio_policy.msm8610
+AUDIO_POLICY += audio_policy.mpq8092
+#AUDIO_POLICY += audio_policy.msm7627_surf
+AUDIO_POLICY += audio_policy.msm7627a
+AUDIO_POLICY += audio_policy.msm7630_surf
+AUDIO_POLICY += audio_policy.msm7630_fusion
+#AUDIO_POLICY += audio_policy.default
+AUDIO_POLICY += audio_policy.conf
+AUDIO_POLICY += audio_policy_8064.conf
+AUDIO_POLICY += audio_policy.msm8916
+AUDIO_POLICY += audio_policy.msm8909
+AUDIO_POLICY += audio_policy.msm8994
+AUDIO_POLICY += audio_policy.msm8992
+AUDIO_POLICY += audio_policy.msm8996
+AUDIO_POLICY += audio_policy.msm8952
+AUDIO_POLICY += audio_policy.msm8937
+AUDIO_POLICY += audio_policy.msm8953
+AUDIO_POLICY += audio_policy.msmgold
+
+#HAL Wrapper
+AUDIO_WRAPPER := libqahw
+AUDIO_WRAPPER += libqahwwrapper
+
+#HAL Test app
+AUDIO_HAL_TEST_APPS := hal_play_test
+AUDIO_HAL_TEST_APPS += hal_rec_test
 
 #tinyalsa test apps
 TINY_ALSA_TEST_APPS := tinyplay
@@ -796,8 +901,14 @@ else
     DELAUN := Launcher3
 endif
 
+PRODUCT_PACKAGES += $(ALSA_HARDWARE)
+PRODUCT_PACKAGES += $(ALSA_UCM)
 PRODUCT_PACKAGES += $(ANGLE)
 PRODUCT_PACKAGES += $(APPOPS_POLICY)
+PRODUCT_PACKAGES += $(AUDIO_HARDWARE)
+PRODUCT_PACKAGES += $(AUDIO_POLICY)
+PRODUCT_PACKAGES += $(AUDIO_WRAPPER)
+PRODUCT_PACKAGES += $(AUDIO_HAL_TEST_APPS)
 PRODUCT_PACKAGES += $(TINY_ALSA_TEST_APPS)
 PRODUCT_PACKAGES += $(AMPLOADER)
 PRODUCT_PACKAGES += $(APPS)
