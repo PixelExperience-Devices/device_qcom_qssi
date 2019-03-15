@@ -659,11 +659,7 @@ MM_VIDEO += ExoplayerDemo
 MM_VIDEO += libaacwrapper
 
 # Codec2.0
-MM_VIDEO += libqcodec2
-MM_VIDEO += qcodec2_test
-MM_VIDEO += vendor.qti.media.c2@1.0-service
-MM_VIDEO += vendor.qti.media.c2@1.0-service.rc
-MM_VIDEO += media_codecs_c2.xml
+# vendor codec2 components are added in target-specific makefile
 MM_VIDEO += libmedia_codecserviceregistrant
 MM_VIDEO += libsfplugin_ccodec
 MM_VIDEO += com.android.media.swcodec
