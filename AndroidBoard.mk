@@ -5,10 +5,10 @@ LOCAL_PATH := $(call my-dir)
 # #---------------------------------------------------------------------
 SOURCE_ROOT := $(shell pwd)
 
-TARGET_HOST_CC_OVERRIDE  := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8/bin/x86_64-linux-gcc
-TARGET_HOST_CXX_OVERRIDE := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8/bin/x86_64-linux-g++
-TARGET_HOST_AR_OVERRIDE  := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8/bin/x86_64-linux-ar
-TARGET_HOST_LD_OVERRIDE  := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8/bin/x86_64-linux-ld
+TARGET_HOST_CC_OVERRIDE  := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-gcc
+TARGET_HOST_CXX_OVERRIDE := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-g++
+TARGET_HOST_AR_OVERRIDE  := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-ar
+TARGET_HOST_LD_OVERRIDE  := $(shell pwd)/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-ld
 
 
 #----------------------------------------------------------------------
