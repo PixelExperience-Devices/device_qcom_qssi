@@ -13,7 +13,6 @@ PRODUCT_AAPT_CONFIG += hdpi mdpi
 PRODUCT_MANUFACTURER := QUALCOMM
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.custom_ecc=1 \
