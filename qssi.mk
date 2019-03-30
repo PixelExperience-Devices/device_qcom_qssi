@@ -24,8 +24,6 @@ ifeq ($(wildcard kernel/msm-$(TARGET_KERNEL_VERSION)/arch/arm64/configs/$(KERNEL
 KERNEL_DEFCONFIG := $(shell ls ./kernel/msm-$(TARGET_KERNEL_VERSION)/arch/arm64/configs/vendor | grep sm8..._defconfig)
 endif
 
-BUILD_BROKEN_PHONY_TARGETS := true
-BUILD_BROKEN_DUP_RULES := true
 TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
 export TEMPORARY_DISABLE_PATH_RESTRICTIONS
 
@@ -149,6 +147,10 @@ PRODUCT_PACKAGES += update_engine \
     brillo_update_payload \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
+
+PRODUCT_HOST_PACKAGES += \
+    brillo_update_payload \
+    fips.py
 
 #Boot control HAL test app
 PRODUCT_PACKAGES_DEBUG += bootctl
