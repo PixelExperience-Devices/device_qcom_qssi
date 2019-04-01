@@ -149,8 +149,7 @@ PRODUCT_PACKAGES += update_engine \
     android.hardware.boot@1.0-service
 
 PRODUCT_HOST_PACKAGES += \
-    brillo_update_payload \
-    fips.py
+    brillo_update_payload
 
 #Boot control HAL test app
 PRODUCT_PACKAGES_DEBUG += bootctl
