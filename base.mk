@@ -833,7 +833,6 @@ PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
     DeskClock \
     AlarmProvider \
-    HidTestApp \
     Calculator \
     Calendar \
     Camera \
