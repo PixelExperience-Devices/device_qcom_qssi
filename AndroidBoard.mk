@@ -75,13 +75,20 @@ include $(BUILD_PREBUILT)
 
 # QSSI merge config files
 ifeq ($(ENABLE_AB), true)
-$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/ab/merge_config_system_item_list)
-$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/ab/merge_config_other_item_list)
-$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/ab/merge_config_system_misc_info_keys)
+    # Handle Case for QSSI-Dynamic Partition
+    ifeq ($(BOARD_DYNAMIC_PARTITION_ENABLE), true)
+        $(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/dynamic_partition/ab/merge_config_system_misc_info_keys)
+        $(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/dynamic_partition/ab/merge_config_other_item_list)
+        $(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/dynamic_partition/ab/merge_config_system_item_list)
+    else
+        $(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/without_dynamic_partition/ab/merge_config_system_misc_info_keys)
+        $(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/without_dynamic_partition/ab/merge_config_other_item_list)
+        $(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/without_dynamic_partition/ab/merge_config_system_item_list)
+    endif
 else
-$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/non_ab/merge_config_system_item_list)
-$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/non_ab/merge_config_other_item_list)
-$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/non_ab/merge_config_system_misc_info_keys)
+$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/without_dynamic_partition/non_ab/merge_config_system_item_list)
+$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/without_dynamic_partition/non_ab/merge_config_other_item_list)
+$(call dist-for-goals,droidcore,$(LOCAL_PATH)/ota_merge_configs/without_dynamic_partition/non_ab/merge_config_system_misc_info_keys)
 endif
 
 #----------------------------------------------------------------------
