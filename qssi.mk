@@ -7,8 +7,8 @@ PRODUCT_BUILD_PRODUCT_IMAGE := false
 PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
 PRODUCT_BUILD_ODM_IMAGE := false
 PRODUCT_BUILD_CACHE_IMAGE := false
-PRODUCT_BUILD_RAMDISK_IMAGE := true
-PRODUCT_BUILD_USERDATA_IMAGE := true
+PRODUCT_BUILD_RAMDISK_IMAGE := false
+PRODUCT_BUILD_USERDATA_IMAGE := false
 
 #Also, there is no need to build an OTA package as this will be done later
 #when we combine this system build with the non-system images.
