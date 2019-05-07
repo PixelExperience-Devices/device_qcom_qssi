@@ -110,3 +110,8 @@ endif
 
 #create firmware directory for qssi
 $(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware)
+
+# override default make with prebuilt make path (if any)
+ifneq (, $(wildcard $(shell pwd)/prebuilts/build-tools/linux-x86/bin/make))
+   MAKE := $(shell pwd)/prebuilts/build-tools/linux-x86/bin/$(MAKE)
+endif
