@@ -346,11 +346,6 @@ INIT += init.qti.fm.sh
 IPROUTE2 := ip
 IPROUTE2 += libiprouteutil
 
-#IPACM
-IPACM += ipacm
-IPACM += IPACM_cfg.xml
-IPACM += ipacm-diag
-
 #IPTABLES
 IPTABLES := libiptc
 IPTABLES += libext
@@ -950,7 +945,6 @@ PRODUCT_PACKAGES += $(VT_JNI)
 PRODUCT_PACKAGES += $(VT_QTI_PERMISSIONS)
 PRODUCT_PACKAGES += $(CRDA)
 PRODUCT_PACKAGES += $(WLAN)
-PRODUCT_PACKAGES += $(IPACM)
 PRODUCT_PACKAGES += $(FD_LEAK)
 # Temp workarround for b/36603742
 PRODUCT_PACKAGES += android.hidl.manager@1.0-java
