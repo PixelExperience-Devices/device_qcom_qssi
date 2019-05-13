@@ -1,4 +1,5 @@
 META/boot_filesystem_config.txt
+META/file_contexts.bin
 META/otakeys.txt
 META/releasetools.py
 META/vendor_filesystem_config.txt
