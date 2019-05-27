@@ -7,7 +7,6 @@ PRODUCT_BUILD_PRODUCT_IMAGE := false
 PRODUCT_BUILD_PRODUCT_SERVICES_IMAGE := false
 PRODUCT_BUILD_ODM_IMAGE := false
 PRODUCT_BUILD_CACHE_IMAGE := false
-PRODUCT_BUILD_RAMDISK_IMAGE := false
 PRODUCT_BUILD_USERDATA_IMAGE := false
 
 #Also, there is no need to build an OTA package as this will be done later
@@ -29,11 +28,13 @@ BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_SYSTEM_ROLLBACK_INDEX := 0
 BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
+PRODUCT_BUILD_RAMDISK_IMAGE := false
 else
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Disable building the SUPER partition in this build. SUPER should be built
 # after QSSI has been merged with the SoC build.
 PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_BUILD_RAMDISK_IMAGE := true
 BOARD_AVB_VBMETA_SYSTEM := system
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
