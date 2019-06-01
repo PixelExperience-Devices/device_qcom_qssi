@@ -150,9 +150,6 @@ TARGET_USES_GRALLOC1 := true
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
 
-#Add non-hlos files to ota packages
-ADD_RADIO_FILES := true
-
 #Enable INTERACTION_BOOST
 TARGET_USES_INTERACTION_BOOST := true
 
