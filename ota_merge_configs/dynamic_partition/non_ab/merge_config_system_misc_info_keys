@@ -1,5 +1,6 @@
 avb_system_hashtree_enable
 avb_system_add_hashtree_footer_args
+avb_vbmeta_system
 avb_vbmeta_system_key_path
 avb_vbmeta_system_algorithm
 avb_vbmeta_system_rollback_index_location
