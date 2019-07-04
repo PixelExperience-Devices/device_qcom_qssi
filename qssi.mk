@@ -26,9 +26,11 @@ SHIPPING_API_LEVEL ?= 28
 #### Turning BOARD_DYNAMIC_PARTITION_ENABLE flag to TRUE will enable dynamic partition/super image creation.
 # Enable Dynamic partitions only for Q new launch devices.
 ifeq ($(SHIPPING_API_LEVEL),29)
-  BOARD_DYNAMIC_PARTITION_ENABLE := true
+  BOARD_DYNAMIC_PARTITION_ENABLE ?= true
+  PRODUCT_SHIPPING_API_LEVEL := 29
 else ifeq ($(SHIPPING_API_LEVEL),28)
-  BOARD_DYNAMIC_PARTITION_ENABLE := false
+  BOARD_DYNAMIC_PARTITION_ENABLE ?= false
+  $(call inherit-product, build/make/target/product/product_launched_with_p.mk)
 endif
 
 ifneq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
@@ -273,9 +275,6 @@ AUDIO_FEATURE_ENABLED_DLKM := true
 else
 AUDIO_FEATURE_ENABLED_DLKM := false
 endif
-
-$(call inherit-product, build/make/target/product/product_launched_with_p.mk)
-
 
 ###################################################################################
 # This is the End of target.mk file.
