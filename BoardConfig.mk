@@ -3,7 +3,6 @@
 # Product-specific compile-time definitions.
 #
 BUILD_BROKEN_ANDROIDMK_EXPORTS=true
-BUILD_BROKEN_DUP_COPY_HEADERS=true
 BUILD_BROKEN_PHONY_TARGETS=true
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 BUILD_BROKEN_ENG_DEBUG_TAGS := true
