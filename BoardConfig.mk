@@ -187,7 +187,7 @@ BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system product
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
 ifeq ($(ENABLE_AB), true)
-AB_OTA_PARTITIONS ?= system product
+AB_OTA_PARTITIONS ?= system product vbmeta_system
 endif
 endif
 ###### Dynamic Partition Handling ####
