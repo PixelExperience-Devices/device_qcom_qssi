@@ -28,6 +28,12 @@ TARGET_HW_DISK_ENCRYPTION_PERF := true
 
 BOARD_SECCOMP_POLICY := device/qcom/$(TARGET_BOARD_PLATFORM)/seccomp
 
+ifeq ($(SHIPPING_API_LEVEL),29)
+  BOARD_SYSTEMSDK_VERSIONS:=29
+else ifeq ($(SHIPPING_API_LEVEL),28)
+  BOARD_SYSTEMSDK_VERSIONS:=28
+endif
+
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 TARGET_NO_KERNEL := false
@@ -158,10 +164,6 @@ TARGET_ENABLE_MEDIADRM_64 := true
 ifeq ($(ENABLE_VENDOR_IMAGE), false)
 	$(error "Vendor Image is mandatory !!")
 endif
-
-#Flag to enable System SDK Requirements.
-#All vendor APK will be compiled against system_current API set.
-BOARD_SYSTEMSDK_VERSIONS:=28
 
 BUILD_BROKEN_DUP_RULES := true
 
