@@ -45,7 +45,6 @@ QCOM_BOARD_PLATFORMS += lito
 QSD8K_BOARD_PLATFORMS := qsd8k
 
 TARGET_USE_VENDOR_CAMERA_EXT := true
-TARGET_USE_QTI_BT_STACK := true
 
 BOARD_HAVE_QCOM_FM ?= true
 
@@ -213,9 +212,6 @@ BT += libbt-vendor
 BT += libbthost_if
 BT += libbt-logClient
 BT += bt_logger
-ifeq ($(TARGET_USE_QTI_BT_STACK), true)
-BT += libbluetooth_qti
-endif
 BT += libbt-hidlclient
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
 
@@ -837,12 +833,6 @@ PRODUCT_PACKAGES := \
     a4wpservice \
     wipowerservice
 
-ifneq ($(BOARD_HAVE_BLUETOOTH),false)
-PRODUCT_PACKAGES += \
-    Bluetooth \
-    BluetoothExt \
-    BATestApp
-endif
 
 ifeq ($(TARGET_HAS_LOW_RAM),true)
     DELAUN := Launcher3Go
