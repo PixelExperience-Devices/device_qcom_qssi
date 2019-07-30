@@ -2,7 +2,9 @@
 #
 # Product-specific compile-time definitions.
 #
+ifeq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),4.19))
 BUILD_BROKEN_ANDROIDMK_EXPORTS=true
+endif
 BUILD_BROKEN_PHONY_TARGETS=true
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 BUILD_BROKEN_ENG_DEBUG_TAGS := true
