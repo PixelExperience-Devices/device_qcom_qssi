@@ -104,11 +104,9 @@ else
 endif
 
 #----------------------------------------------------------------------
-# extra images
+# Configs common to AndroidBoard.mk for all targets
 #----------------------------------------------------------------------
-ifeq ($(TARGET_PRODUCT),qssi)
-include device/qcom/common/generate_extra_images.mk
-endif
+include vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk
 
 #create firmware directory for qssi
 $(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware)
