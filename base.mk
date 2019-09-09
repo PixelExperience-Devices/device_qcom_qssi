@@ -1090,6 +1090,7 @@ PRODUCT_PACKAGES_DEBUG += \
     init.qti.debug-msmnile.sh \
     init.qti.debug-kona.sh \
     init.qti.debug-lito.sh \
+    init.qti.debug-atoll.sh \
     init.qti.debug-trinket.sh
 
 PRODUCT_PACKAGES += liboemaids_system
