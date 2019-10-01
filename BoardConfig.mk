@@ -79,12 +79,17 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 #----------------------------------------------------------------------
 # Compile Linux Kernel
 #----------------------------------------------------------------------
+# Check for sdm845 first, if defconfig is not found search for sm845_defconfig, followed by kona_defconfig
+#
 KERN_CONF_PATH := kernel/msm-$(TARGET_KERNEL_VERSION)/arch/arm64/configs
 KERNEL_DEFCONFIG := sdm845_defconfig
 ifeq ($(wildcard $(KERN_CONF_PATH)/$(KERNEL_DEFCONFIG)),)
 KERNEL_DEFCONFIG := $(shell ls $(KERN_CONF_PATH)/vendor | grep sm8..._defconfig)
 ifeq ($(KERNEL_DEFCONFIG),)
-KERNEL_DEFCONFIG := kona_defconfig
+KERNEL_DEFCONFIG := $(shell ls $(KERN_CONF_PATH)/vendor | grep kona_defconfig)
+ifeq ($(KERNEL_DEFCONFIG),)
+KERNEL_DEFCONFIG := lahaina-qgki-debug_defconfig
+endif
 endif
 KERNEL_DEFCONFIG := vendor/$(KERNEL_DEFCONFIG)
 endif
