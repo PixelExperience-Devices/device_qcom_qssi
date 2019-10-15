@@ -2,9 +2,6 @@
 #
 # Product-specific compile-time definitions.
 #
-ifeq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),4.19))
-BUILD_BROKEN_ANDROIDMK_EXPORTS=true
-endif
 
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
