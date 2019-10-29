@@ -3,6 +3,8 @@
 # Product-specific compile-time definitions.
 #
 
+ALLOW_MISSING_DEPENDENCIES := true
+
 TARGET_BOARD_PLATFORM := msmnile
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
 
