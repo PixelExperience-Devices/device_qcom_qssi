@@ -136,12 +136,6 @@ endif
 #    PRODUCT_BOOT_JARS += libprotobuf-java_mls
 #endif
 
-# Video codec configuration files
-ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS), true)
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
-endif #TARGET_ENABLE_QC_AV_ENHANCEMENTS
-
 PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
 # Audio configuration file
