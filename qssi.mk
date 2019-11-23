@@ -61,7 +61,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces
 
 # define flag to determine the kernel
-TARGET_KERNEL_VERSION := $(shell ls kernel | grep "msm-*" | sed 's/msm-//')
+TARGET_KERNEL_VERSION := $(shell ls -1r kernel | grep "msm-*" | sed 's/msm-//' | head -1)
 
 # Set flags for 4.14 and higher kernels
 ifeq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
