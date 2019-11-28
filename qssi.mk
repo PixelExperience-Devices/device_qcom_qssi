@@ -124,6 +124,8 @@ PRODUCT_PACKAGES += telephony-ext
 
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
 
+TARGET_SYSTEM_PROP += device/qcom/qssi/system.prop
+
 TARGET_DISABLE_DASH := true
 TARGET_DISABLE_QTI_VPP := true
 
