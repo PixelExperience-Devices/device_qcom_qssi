@@ -650,11 +650,6 @@ MM_VIDEO += mm-video-encdrv-test
 MM_VIDEO += ExoplayerDemo
 MM_VIDEO += libaacwrapper
 
-# Codec2.0
-# vendor codec2 components are added in target-specific makefile
-MM_VIDEO += libmedia_codecserviceregistrant
-MM_VIDEO += libsfplugin_ccodec
-MM_VIDEO += com.android.media.swcodec
 
 #OPENCORE
 OPENCORE := libomx_aacdec_sharedlibrary
