@@ -238,10 +238,6 @@ PRODUCT_PACKAGES += vndk_package
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
 
-#----------------------------------------------------------------------
-# wlan specific
-#----------------------------------------------------------------------
-include device/qcom/wlan/msmnile/wlan.mk
 
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
