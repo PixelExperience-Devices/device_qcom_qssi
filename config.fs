@@ -10,6 +10,9 @@ value:2903
 [AID_VENDOR_RFS_SHARED]
 value:2904
 
+[AID_VENDOR_FASTRPC]
+value:2908
+
 [vendor/bin/wcnss_filter]
 mode: 0755
 user: AID_BLUETOOTH
