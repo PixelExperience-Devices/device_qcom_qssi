@@ -255,6 +255,10 @@ else
 AUDIO_FEATURE_ENABLED_DLKM := false
 endif
 
+ifeq ($(ENABLE_VIRTUAL_AB), true)
+    $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+endif
+
 ###################################################################################
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
