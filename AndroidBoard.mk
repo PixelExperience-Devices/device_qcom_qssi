@@ -5,7 +5,7 @@ LOCAL_PATH := $(call my-dir)
 #----------------------------------------------------------------------
 SOURCE_ROOT := $(shell pwd)
 TARGET_HOST_COMPILER_PREFIX_OVERRIDE := prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-
-TARGET_HOST_CC_OVERRIDE := $(SOONG_LLVM_PREBUILTS_PATH)/clang
+TARGET_HOST_CC_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)gcc
 TARGET_HOST_CXX_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)g++
 TARGET_HOST_AR_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)ar
 TARGET_HOST_LD_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)ld
@@ -41,11 +41,11 @@ TARGET_KERNEL_MAKE_ENV += HOSTCC=$(SOURCE_ROOT)/$(TARGET_HOST_CC_OVERRIDE)
 TARGET_KERNEL_MAKE_ENV += HOSTAR=$(SOURCE_ROOT)/$(TARGET_HOST_AR_OVERRIDE)
 TARGET_KERNEL_MAKE_ENV += HOSTLD=$(SOURCE_ROOT)/$(TARGET_HOST_LD_OVERRIDE)
 ifeq ($(TARGET_USES_NEW_ION), false)
-TARGET_KERNEL_MAKE_ENV += HOSTCFLAGS="-I/usr/include -I/usr/include/x86_64-linux-gnu -L/usr/lib -L/usr/lib/x86_64-linux-gnu -fuse-ld=lld"
+TARGET_KERNEL_MAKE_ENV += HOSTCFLAGS="-I/usr/include -I/usr/include/x86_64-linux-gnu -L/usr/lib -L/usr/lib/x86_64-linux-gnu"
 else
-TARGET_KERNEL_MAKE_ENV += HOSTCFLAGS="-I$(SOURCE_ROOT)/kernel/msm-$(TARGET_KERNEL_VERSION)/include/uapi -I/usr/include -I/usr/include/x86_64-linux-gnu -L/usr/lib -L/usr/lib/x86_64-linux-gnu -fuse-ld=lld"
+TARGET_KERNEL_MAKE_ENV += HOSTCFLAGS="-I$(SOURCE_ROOT)/kernel/msm-$(TARGET_KERNEL_VERSION)/include/uapi -I/usr/include -I/usr/include/x86_64-linux-gnu -L/usr/lib -L/usr/lib/x86_64-linux-gnu"
 endif
-TARGET_KERNEL_MAKE_ENV += HOSTLDFLAGS="-L/usr/lib -L/usr/lib/x86_64-linux-gnu -fuse-ld=lld"
+TARGET_KERNEL_MAKE_ENV += HOSTLDFLAGS="-L/usr/lib -L/usr/lib/x86_64-linux-gnu"
 
 KERNEL_LLVM_BIN := $(lastword $(sort $(wildcard $(SOURCE_ROOT)/$(LLVM_PREBUILTS_BASE)/$(BUILD_OS)-x86/clang-4*)))/bin/clang
 
