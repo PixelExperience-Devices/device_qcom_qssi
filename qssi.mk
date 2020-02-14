@@ -142,7 +142,7 @@ PRODUCT_PACKAGES += android.hardware.media.omx@1.0-impl
 
 # Audio configuration file
 -include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/qssi/qssi.mk
--include $(TOPDIR)hardware/qcom/audio/configs/msmnile/msmnile.mk
+-include $(TOPDIR)vendor/qcom/opensource/commonsys/audio/configs/qssi/qssi.mk
 AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 USE_LIB_PROCESS_GROUP := true
 
