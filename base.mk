@@ -294,7 +294,6 @@ INIT += init.qcom.sh
 INIT += init.qcom.class_core.sh
 INIT += init.class_main.sh
 INIT += init.qcom.wifi.sh
-INIT += vold.fstab
 INIT += init.qcom.usb.rc
 INIT += init.msm.usb.configfs.rc
 INIT += init.qcom.usb.sh
