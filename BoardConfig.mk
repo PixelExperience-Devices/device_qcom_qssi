@@ -153,8 +153,6 @@ ifeq ($(HOST_OS),linux)
     endif
 endif
 
-TARGET_USES_GRALLOC1 := true
-
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
 
