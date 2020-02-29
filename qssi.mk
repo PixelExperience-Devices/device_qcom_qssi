@@ -220,8 +220,10 @@ KERNEL_MODULES_OUT := out/target/product/$(PRODUCT_NAME)/$(KERNEL_MODULES_INSTAL
 PRODUCT_COPY_FILES += \
     device/qcom/qssi/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
+ifneq ($(strip $(TARGET_BUILD_VARIANT)),user)
 PRODUCT_COPY_FILES += \
     device/qcom/qssi/init.qcom.testscripts.sh:$(TARGET_COPY_OUT_PRODUCT)/etc/init.qcom.testscripts.sh
+endif
 
 #Enable full treble flag
 PRODUCT_FULL_TREBLE_OVERRIDE := true
