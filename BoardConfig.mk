@@ -33,7 +33,7 @@ endif
 
 TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
-TARGET_NO_KERNEL := false
+TARGET_NO_KERNEL := true
 
 # Disable DLKMs compilation for lunch qssi builds.
 TARGET_KERNEL_DLKM_DISABLE := true
@@ -128,10 +128,8 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 
 #Disable appended dtb.
 TARGET_KERNEL_APPEND_DTB := false
-TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 #Enable dtb in boot image and boot image header version 2 support.
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
