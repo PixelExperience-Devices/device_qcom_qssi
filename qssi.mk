@@ -46,10 +46,11 @@ else
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Disable building the SUPER partition in this build. SUPER should be built
 # after QSSI has been merged with the SoC build.
+PRODUCT_BUILD_SYSTEM_EXT_IMAGE := true
 PRODUCT_BUILD_PRODUCT_IMAGE := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_BUILD_RAMDISK_IMAGE := true
-BOARD_AVB_VBMETA_SYSTEM := system product
+BOARD_AVB_VBMETA_SYSTEM := system system_ext product
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
@@ -99,9 +100,9 @@ TARGET_USES_RRO := true
 
 TARGET_USES_NQ_NFC := true
 
+
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
-
 BOARD_FRP_PARTITION_NAME := frp
 
 #Android EGL implementation
@@ -242,6 +243,12 @@ endif
 
 ifeq ($(ENABLE_VIRTUAL_AB), true)
     $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+endif
+
+# Include mainline components and QSSI whitelist
+ifeq ($(shell test $(SHIPPING_API_LEVEL) -ge 29; echo $$?),0)
+  $(call inherit-product, device/qcom/qssi/qssi_whitelist.mk)
+  PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := true
 endif
 
 ###################################################################################
