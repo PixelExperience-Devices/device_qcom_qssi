@@ -1,5 +1,6 @@
 #For QSSI, we build only the system image. Here we explicitly set the images
 #we build so there is no confusion.
+
 PRODUCT_BUILD_SYSTEM_IMAGE := true
 PRODUCT_BUILD_SYSTEM_OTHER_IMAGE := false
 PRODUCT_BUILD_VENDOR_IMAGE := false
@@ -66,6 +67,8 @@ VENDOR_QTI_DEVICE := qssi
 #QSSI configuration
 #Single system image project structure
 TARGET_USES_QSSI := true
+
+TARGET_USES_NEW_ION := true
 
 ENABLE_AB ?= true
 
@@ -157,7 +160,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@1.0-service \
     libhealthd.msm
 
-DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/qssi/framework_manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
 
