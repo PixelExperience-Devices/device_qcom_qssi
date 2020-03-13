@@ -203,11 +203,6 @@ PRODUCT_PACKAGES += \
 KERNEL_MODULES_INSTALL := dlkm
 KERNEL_MODULES_OUT := out/target/product/$(PRODUCT_NAME)/$(KERNEL_MODULES_INSTALL)/lib/modules
 
-
-#Exclude vibrator from InputManager
-PRODUCT_COPY_FILES += \
-    device/qcom/qssi/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
-
 ifneq ($(strip $(TARGET_BUILD_VARIANT)),user)
 PRODUCT_COPY_FILES += \
     device/qcom/qssi/init.qcom.testscripts.sh:$(TARGET_COPY_OUT_PRODUCT)/etc/init.qcom.testscripts.sh
