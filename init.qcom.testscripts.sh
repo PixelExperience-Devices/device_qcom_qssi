@@ -43,6 +43,6 @@ esac
 
 func_enable=`getprop persist.vendor.sys.rawdump_copy`
 case "$func_enable" in
-    1) runcon u:r:su:s0 /system/bin/sh /system/bin/ramdump_wrapper.sh &
+    1) runcon u:r:su:s0 /system/bin/sh /system_ext/ramdump_wrapper.sh &
 	;;
 esac
