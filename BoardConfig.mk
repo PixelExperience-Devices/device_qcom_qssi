@@ -138,6 +138,9 @@ BUILD_BROKEN_USES_BUILD_HOST_STATIC_LIBRARY := true
 BOARD_VNDK_VERSION:=current
 Q_BU_DISABLE_MODULE := true
 
+# Set SYSTEMEXT_SEPARATE_PARTITION_ENABLE if was not already set (set earlier via build.sh).
+SYSTEMEXT_SEPARATE_PARTITION_ENABLE ?= false
+
 ###### Dynamic Partition Handling ####
 ifneq ($(strip $(BOARD_DYNAMIC_PARTITION_ENABLE)),true)
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -149,16 +152,30 @@ AB_OTA_PARTITIONS ?= system
 endif
 else
 TARGET_COPY_OUT_PRODUCT := product
+ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+endif
 BOARD_USES_PRODUCTIMAGE := true
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+endif
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_SUPER_PARTITION_SIZE := 12884901888
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
+ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product
+else
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system product
+endif
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 6438256640
 BOARD_EXT4_SHARE_DUP_BLOCKS := true
 ifeq ($(ENABLE_AB), true)
+ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), true)
+AB_OTA_PARTITIONS ?= system system_ext product vbmeta_system
+else
 AB_OTA_PARTITIONS ?= system product vbmeta_system
+endif
 endif
 endif
 ###### Dynamic Partition Handling ####
