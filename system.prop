@@ -79,27 +79,6 @@ persist.fuse_sdcard=true
 ro.bluetooth.library_name=libbluetooth_qti.so
 persist.vendor.btstack.aac_frm_ctl.enabled=true
 
-#
-#snapdragon value add features
-#
-ro.qc.sdk.audio.ssr=false
-
-##fluencetype can be "fluence" or "fluencepro" or "none"
-ro.qc.sdk.audio.fluencetype=none
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-
-
-#enable offload audio video playback by default
-audio.offload.video=true
-#
-##enable music through deep buffer
-audio.deep_buffer.media=true
-#
-##set AudioFlinger client heap size
-ro.af.client_heap_size_kbyte=7168
-#
 #system prop for RmNet Data
 persist.rmnet.data.enable=true
 persist.data.wda.enable=true
@@ -126,20 +105,11 @@ debug.sf.latch_unsignaled=1
 # enable tunnel encoding for amrwb
 tunnel.audio.encode = true
 
-#Buffer size in kbytes for compress offload playback
-audio.offload.buffer.size.kb=32
-
-#Enable offload audio video playback by default
-av.offload.enable=true
-
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
 
 # system prop for NFC DT
 ro.nfc.port=I2C
-
-#enable dsp gapless mode by default
-audio.offload.gapless.enabled=true
 
 #initialize QCA1530 detection
 sys.qca1530=detect
