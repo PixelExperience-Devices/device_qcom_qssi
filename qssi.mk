@@ -257,6 +257,11 @@ ifeq ($(ENABLE_VIRTUAL_AB), true)
     $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 endif
 
+ifeq ($(SYSTEMEXT_SEPARATE_PARTITION_ENABLE), false)
+PRODUCT_PACKAGES += \
+    qti_skip_mount.cfg
+endif
+
 # Include mainline components and QSSI whitelist
 ifeq ($(shell test $(SHIPPING_API_LEVEL) -ge 29; echo $$?),0)
   $(call inherit-product, device/qcom/qssi/qssi_whitelist.mk)
