@@ -259,6 +259,8 @@ endif
 
 # Include mainline components and QSSI whitelist
 ifeq ($(shell test $(SHIPPING_API_LEVEL) -ge 29; echo $$?),0)
+  OVERRIDE_TARGET_FLATTEN_APEX := true
+  $(call inherit-product, $(SRC_TARGET_DIR)/product/mainline_system.mk)
   $(call inherit-product, device/qcom/qssi/qssi_whitelist.mk)
   PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := true
 endif
