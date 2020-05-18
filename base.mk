@@ -790,7 +790,6 @@ PRODUCT_PACKAGES := \
     SoundRecorder \
     IM \
     SnapdragonGallery \
-    SnapdragonMusic \
     VideoEditor \
     SnapdragonLauncher
 
