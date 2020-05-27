@@ -2,9 +2,6 @@
 # system.prop for qssi
 #
 
-#To support updatable apexd
-ro.apex.updatable=true
-
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 #rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=

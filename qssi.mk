@@ -262,10 +262,6 @@ PRODUCT_PACKAGES += \
     qti_skip_mount.cfg
 endif
 
-
-#To enable updatable apex
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Include mainline components and QSSI whitelist
 ifeq ($(shell test $(SHIPPING_API_LEVEL) -ge 29; echo $$?),0)
   $(call inherit-product, device/qcom/qssi/qssi_whitelist.mk)
