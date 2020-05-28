@@ -221,6 +221,10 @@ endif
 PRODUCT_COPY_FILES += \
     device/qcom/qssi/public.libraries.product-qti.txt:$(TARGET_COPY_OUT_PRODUCT)/etc/public.libraries-qti.txt
 
+# copy system_ext specific whitelisted libraries to system_ext/etc
+PRODUCT_COPY_FILES += \
+    device/qcom/qssi/public.libraries.system_ext-qti.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-qti.txt
+
 #Enable full treble flag
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
