@@ -1,3 +1,4 @@
+# Files common to all SIs
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
 system/app/Protips/Protips.apk \
 system/app/Protips/oat/arm64/Protips.odex \
@@ -17,9 +18,7 @@ system/lib/libcurl.so \
 system/lib64/libbluetooth-binder.so \
 system/lib64/libmediaplayerservice.so \
 system/lib64/libstagefright_httplive.so \
-system/usr/keylayout/gpio-keys.kl
-
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+system/usr/keylayout/gpio-keys.kl \
 system/etc/sysconfig/preinstalled-packages-platform-full-base.xml \
 system/framework/oat/arm/tcmclient.odex \
 system/framework/oat/arm/tcmclient.vdex \
@@ -37,5 +36,53 @@ system/lib/android.hardware.nfc@1.1.so \
 system/lib/android.hardware.nfc@1.2.so \
 system/lib64/android.hardware.nfc@1.0.so \
 system/lib64/android.hardware.nfc@1.1.so \
-system/lib64/android.hardware.nfc@1.2.so
+system/lib64/android.hardware.nfc@1.2.so \
+system/app/GoogleExtShared/GoogleExtShared.apk \
+system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+system/etc/init.graphics.test.rc \
+system/etc/init/init.graphics.test.rc \
+system/etc/permissions/privapp-permissions-google-system.xml \
+system/lib/android.hardware.sensors@2.0-ScopedWakelock.so \
+system/lib/hw/vendor.qti.hardware.qccsyshal@1.0-impl.so \
+system/lib/libavservices_minijail.so \
+system/lib/libminijail.so \
+system/lib/libtextclassifier.so \
+system/lib/vendor.qti.hardware.secureprocessor.common@1.0-helper.so \
+system/lib64/android.hardware.sensors@2.0-ScopedWakelock.so \
+system/lib64/hw/vendor.qti.hardware.qccsyshal@1.0-impl.so \
+system/lib64/libQOC.qti.so \
+system/lib64/libtextclassifier.so \
+system/lib64/vendor.qti.hardware.secureprocessor.common@1.0-helper.so \
+system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk
 
+# Files specific to 9.8 and 9.11
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+system/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so \
+system/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
+
+# Files specific to 9.11
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+system/lib/libjni_imageutil.so \
+system/lib/libjni_snapcammosaic.so \
+system/lib/libjni_snapcamtinyplanet.so \
+system/lib64/libjni_imageutil.so \
+system/lib64/libjni_snapcammosaic.so \
+system/lib64/libjni_snapcamtinyplanet.so \
+system/priv-app/SnapdragonCamera/SnapdragonCamera.apk
+
+# Files specific to 9.11, 9.15, 9.12.c9
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+system/etc/preferred-apps/google.xml
+
+# Files specific to 9.12.c9
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+system/app/SoundRecorder/SoundRecorder.apk \
+system/app/SoundRecorder/oat/arm64/SoundRecorder.odex \
+system/app/SoundRecorder/oat/arm64/SoundRecorder.vdex
+
+# _base_mk_whitelist represent second whitelist define in mainline_system.mk
+# append with additional files. Will be removed once similar change merged
+# to mainline_system.mk
+override _base_mk_whitelist := \
+$(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.qti.hardware.display.composer@3.0.so \
+$(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.hardware.display.composer@3.0.so
