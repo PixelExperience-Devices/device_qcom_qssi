@@ -35,6 +35,8 @@ SYSTEMEXT_SEPARATE_PARTITION_ENABLE ?= false
 # SHIPPING_API_LEVEL to 28 if it was not set earlier (this is generally set earlier via build.sh per-target)
 SHIPPING_API_LEVEL ?= 28
 
+$(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/cne_url*.mk)
+
 #### Turning BOARD_DYNAMIC_PARTITION_ENABLE flag to TRUE will enable dynamic partition/super image creation.
 # Enable Dynamic partitions only for Q new launch devices.
 ifeq ($(SHIPPING_API_LEVEL),29)
