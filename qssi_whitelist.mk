@@ -53,7 +53,12 @@ system/lib64/hw/vendor.qti.hardware.qccsyshal@1.0-impl.so \
 system/lib64/libQOC.qti.so \
 system/lib64/libtextclassifier.so \
 system/lib64/vendor.qti.hardware.secureprocessor.common@1.0-helper.so \
-system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk
+system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk \
+system/bin/tinycap \
+system/bin/tinymix \
+system/bin/tinypcminfo \
+system/bin/tinyplay \
+system/bin/update_engine_client
 
 # Files specific to 9.8 and 9.11
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
