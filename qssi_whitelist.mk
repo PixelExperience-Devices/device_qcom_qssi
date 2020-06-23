@@ -9,6 +9,7 @@ system/etc/permissions/privapp-permissions-qti.xml \
 system/etc/sysconfig/qti_whitelist.xml \
 system/framework/QPerformance.jar \
 system/framework/UxPerformance.jar \
+system/framework/QXPerformance.jar \
 system/framework/WfdCommon.jar \
 system/framework/qcom.fmradio.jar \
 system/framework/tcmiface.jar \
