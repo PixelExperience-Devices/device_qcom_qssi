@@ -85,9 +85,9 @@ system/app/SoundRecorder/SoundRecorder.apk \
 system/app/SoundRecorder/oat/arm64/SoundRecorder.odex \
 system/app/SoundRecorder/oat/arm64/SoundRecorder.vdex
 
-# _base_mk_whitelist represent second whitelist define in mainline_system.mk
+# _base_mk_allowed_list represent second whitelist define in mainline_system.mk
 # append with additional files. Will be removed once similar change merged
 # to mainline_system.mk
-override _base_mk_whitelist := \
+override _base_mk_allowed_list := \
 $(TARGET_COPY_OUT_SYSTEM_EXT)/lib/vendor.qti.hardware.display.composer@3.0.so \
 $(TARGET_COPY_OUT_SYSTEM_EXT)/lib64/vendor.qti.hardware.display.composer@3.0.so
