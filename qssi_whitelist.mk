@@ -1,5 +1,5 @@
 # Files common to all SIs
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 system/app/Protips/Protips.apk \
 system/app/Protips/oat/arm64/Protips.odex \
 system/app/Protips/oat/arm64/Protips.vdex \
@@ -62,12 +62,12 @@ system/bin/tinyplay \
 system/bin/update_engine_client
 
 # Files specific to 9.8 and 9.11
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 system/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so \
 system/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
 
 # Files specific to 9.11
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 system/lib/libjni_imageutil.so \
 system/lib/libjni_snapcammosaic.so \
 system/lib/libjni_snapcamtinyplanet.so \
@@ -77,11 +77,11 @@ system/lib64/libjni_snapcamtinyplanet.so \
 system/priv-app/SnapdragonCamera/SnapdragonCamera.apk
 
 # Files specific to 9.11, 9.15, 9.12.c9
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 system/etc/preferred-apps/google.xml
 
 # Files specific to 9.12.c9
-PRODUCT_ARTIFACT_PATH_REQUIREMENT_WHITELIST += \
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 system/app/SoundRecorder/SoundRecorder.apk \
 system/app/SoundRecorder/oat/arm64/SoundRecorder.odex \
 system/app/SoundRecorder/oat/arm64/SoundRecorder.vdex
