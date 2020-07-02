@@ -59,7 +59,11 @@ system/bin/tinycap \
 system/bin/tinymix \
 system/bin/tinypcminfo \
 system/bin/tinyplay \
-system/bin/update_engine_client
+system/bin/update_engine_client \
+system/lib/android.hardware.secure_element@1.1.so \
+system/lib/android.hardware.secure_element@1.2.so \
+system/lib64/android.hardware.secure_element@1.1.so \
+system/lib64/android.hardware.secure_element@1.2.so
 
 # Files specific to 9.8 and 9.11
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
