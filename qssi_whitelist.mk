@@ -65,6 +65,11 @@ system/lib/android.hardware.secure_element@1.2.so \
 system/lib64/android.hardware.secure_element@1.1.so \
 system/lib64/android.hardware.secure_element@1.2.so
 
+#Temporarily add thermal hal lib
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+system/lib64/android.hardware.thermal@2.0.so \
+system/lib/android.hardware.thermal@2.0.so
+
 # Files specific to 9.8 and 9.11
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 system/lib/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so \
