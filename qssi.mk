@@ -264,7 +264,6 @@ endif
 
 # Include mainline components and QSSI whitelist
 ifeq (true,$(call math_gt_or_eq,$(SHIPPING_API_LEVEL),29))
-  OVERRIDE_TARGET_FLATTEN_APEX := true
   $(call inherit-product, device/qcom/qssi/qssi_whitelist.mk)
   PRODUCT_ARTIFACT_PATH_REQUIREMENT_IGNORE_PATHS := /system/system_ext/
   PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := true
