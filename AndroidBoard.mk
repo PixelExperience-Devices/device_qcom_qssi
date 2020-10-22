@@ -40,10 +40,12 @@ include $(BUILD_PREBUILT)
 # Build the buildtools.zip package.
 # It is a package consisting of build tools (like java jdk, build.sh, test-keys),
 # that is further useful for post-make standalone image creation (like for super.img).
+BUILD_IMAGE_STANDALONE_SCRIPT := build_image_standalone.py
+BUILD_IMAGE_STANDALONE_SCRIPT_PATH := vendor/qcom/opensource/core-utils/build/$(BUILD_IMAGE_STANDALONE_SCRIPT)
 INTERNAL_BUILDTOOLS_PACKAGE_FILES := \
   build/make/target/product/security \
   vendor/qcom/opensource/core-utils/build/build.sh \
-  vendor/qcom/opensource/core-utils/build/build_image_standalone.py
+  $(BUILD_IMAGE_STANDALONE_SCRIPT_PATH)
 
 # Pick the default java jdk used by build system
 INTERNAL_BUILDTOOLS_PACKAGE_JAVA_PREBUILT := $(JAVA_HOME)
@@ -65,6 +67,7 @@ $(BUILT_BUILDTOOLS_PACKAGE): $(SOONG_ZIP)
 
 droidcore: $(BUILT_BUILDTOOLS_PACKAGE)
 $(call dist-for-goals,droidcore,$(BUILT_BUILDTOOLS_PACKAGE):buildtools/$(BUILT_BUILDTOOLS_PACKAGE_NAME))
+$(call dist-for-goals,droidcore,$(BUILD_IMAGE_STANDALONE_SCRIPT_PATH):buildtools/$(BUILD_IMAGE_STANDALONE_SCRIPT))
 # -- end buildtools.zip.
 
 #----------------------------------------------------------------------
