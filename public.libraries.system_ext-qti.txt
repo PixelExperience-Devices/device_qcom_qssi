@@ -3,3 +3,4 @@ libqvrcamera_client.qti.so
 libupdateprof.qti.so
 libthermalclient.qti.so
 libQOC.qti.so
+libdiag_system.qti.so
