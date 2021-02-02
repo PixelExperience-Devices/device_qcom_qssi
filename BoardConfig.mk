@@ -116,7 +116,7 @@ TARGET_USES_INTERACTION_BOOST := true
 TARGET_ENABLE_MEDIADRM_64 := true
 
 ifeq ($(ENABLE_VENDOR_IMAGE), false)
-	$(error "Vendor Image is mandatory !!")
+    $(error "Vendor Image is mandatory !!")
 endif
 
 BUILD_BROKEN_DUP_RULES := true
