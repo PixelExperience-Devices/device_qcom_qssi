@@ -45,12 +45,14 @@ system/etc/init/init.graphics.test.rc \
 system/etc/permissions/privapp-permissions-google-system.xml \
 system/lib/android.hardware.sensors@2.0-ScopedWakelock.so \
 system/lib/hw/vendor.qti.hardware.qccsyshal@1.0-impl.so \
+system/lib/hw/vendor.qti.hardware.qccsyshal@1.1-impl.so \
 system/lib/libavservices_minijail.so \
 system/lib/libminijail.so \
 system/lib/libtextclassifier.so \
 system/lib/vendor.qti.hardware.secureprocessor.common@1.0-helper.so \
 system/lib64/android.hardware.sensors@2.0-ScopedWakelock.so \
 system/lib64/hw/vendor.qti.hardware.qccsyshal@1.0-impl.so \
+system/lib64/hw/vendor.qti.hardware.qccsyshal@1.1-impl.so \
 system/lib64/libQOC.qti.so \
 system/lib64/libtextclassifier.so \
 system/lib64/vendor.qti.hardware.secureprocessor.common@1.0-helper.so \
