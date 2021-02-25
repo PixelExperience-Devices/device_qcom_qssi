@@ -784,7 +784,8 @@ PRODUCT_PACKAGES := \
     IM \
     SnapdragonGallery \
     VideoEditor \
-    SnapdragonLauncher
+    SnapdragonLauncher \
+    QesdkSysService
 
 ifeq ($(TARGET_HAS_LOW_RAM),true)
     DELAUN := Launcher3Go
