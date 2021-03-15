@@ -5,6 +5,8 @@
 #the shipping API level for the target is greater than 29
 PRODUCT_PRODUCT_VNDK_VERSION := current
 
+RELAX_USES_LIBRARY_CHECK := true
+
 #Enable product partition Java I/F. It is automatically set to true if
 #the shipping API level for the target is greater than 29
 PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
