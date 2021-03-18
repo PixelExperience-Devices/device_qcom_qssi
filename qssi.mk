@@ -1,6 +1,9 @@
 #For QSSI, we build only the system image. Here we explicitly set the images
 #we build so there is no confusion.
 
+# Skip VINTF checks for kernel configs since we do not have kernel source
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
 #Enable product partition Native I/F. It is automatically set to current if
 #the shipping API level for the target is greater than 29
 PRODUCT_PRODUCT_VNDK_VERSION := current
