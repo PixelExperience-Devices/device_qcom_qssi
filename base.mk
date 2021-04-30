@@ -104,77 +104,6 @@ APPOPS_POLICY := appops_policy.xml
 #ATRACE_HAL
 ATRACE_HAL := android.hardware.atrace@1.0-service
 
-AUDIO_HARDWARE := audio.primary.mpq8064
-AUDIO_HARDWARE += audio.primary.apq8084
-AUDIO_HARDWARE += audio.primary.msm8960
-AUDIO_HARDWARE += audio.primary.msm8974
-AUDIO_HARDWARE += audio.primary.msm8226
-AUDIO_HARDWARE += audio.primary.msm8660
-AUDIO_HARDWARE += audio.primary.msm8610
-#AUDIO_HARDWARE += audio.primary.msm7627_surf
-AUDIO_HARDWARE += audio.primary.msm7627a
-AUDIO_HARDWARE += audio.primary.msm7630_surf
-AUDIO_HARDWARE += audio.primary.msm7630_fusion
-#AUDIO_HARDWARE += audio.primary.default
-AUDIO_HARDWARE += audio.a2dp.default
-AUDIO_HARDWARE += audio.usb.default
-AUDIO_HARDWARE += audio.r_submix.default
-AUDIO_HARDWARE += audio.primary.mpq8092
-AUDIO_HARDWARE += audio.primary.msm8916
-AUDIO_HARDWARE += audio.primary.msm8909
-AUDIO_HARDWARE += audio.primary.msm8994
-AUDIO_HARDWARE += audio.primary.msm8992
-AUDIO_HARDWARE += audio.primary.msm8996
-AUDIO_HARDWARE += audio.primary.msm8952
-AUDIO_HARDWARE += audio.primary.msm8937
-AUDIO_HARDWARE += audio.primary.msm8953
-AUDIO_HARDWARE += audio.primary.msmgold
-AUDIO_HARDWARE += audio.primary.msm8998
-AUDIO_HARDWARE += audio.primary.sdm660
-AUDIO_HARDWARE += audio.primary.sdm845
-AUDIO_HARDWARE += audio.primary.apq8098_latv
-AUDIO_HARDWARE += audio.primary.sdm710
-AUDIO_HARDWARE += audio.primary.qcs605
-AUDIO_HARDWARE += audio.primary.msmnile
-AUDIO_HARDWARE += audio.primary.$(MSMSTEPPE)
-AUDIO_HARDWARE += audio.primary.$(TRINKET)
-AUDIO_HARDWARE += audio.primary.kona
-AUDIO_HARDWARE += audio.primary.lito
-AUDIO_HARDWARE += audio.primary.bengal
-AUDIO_HARDWARE += audio.primary.atoll
-#
-AUDIO_POLICY := audio_policy.mpq8064
-AUDIO_POLICY += audio_policy.apq8084
-AUDIO_POLICY += audio_policy.msm8960
-AUDIO_POLICY += audio_policy.msm8974
-AUDIO_POLICY += audio_policy.msm8226
-AUDIO_POLICY += audio_policy.msm8660
-AUDIO_POLICY += audio_policy.msm8610
-AUDIO_POLICY += audio_policy.mpq8092
-#AUDIO_POLICY += audio_policy.msm7627_surf
-AUDIO_POLICY += audio_policy.msm7627a
-AUDIO_POLICY += audio_policy.msm7630_surf
-AUDIO_POLICY += audio_policy.msm7630_fusion
-#AUDIO_POLICY += audio_policy.default
-AUDIO_POLICY += audio_policy.conf
-AUDIO_POLICY += audio_policy_8064.conf
-AUDIO_POLICY += audio_policy.msm8916
-AUDIO_POLICY += audio_policy.msm8909
-AUDIO_POLICY += audio_policy.msm8994
-AUDIO_POLICY += audio_policy.msm8992
-AUDIO_POLICY += audio_policy.msm8996
-AUDIO_POLICY += audio_policy.msm8952
-AUDIO_POLICY += audio_policy.msm8937
-AUDIO_POLICY += audio_policy.msm8953
-AUDIO_POLICY += audio_policy.msmgold
-
-#HAL Wrapper
-AUDIO_WRAPPER := libqahw
-AUDIO_WRAPPER += libqahwwrapper
-
-#HAL Test app
-AUDIO_HAL_TEST_APPS := hal_play_test
-AUDIO_HAL_TEST_APPS += hal_rec_test
 
 #tinyalsa test apps
 TINY_ALSA_TEST_APPS := tinyplay
@@ -311,8 +240,6 @@ IPTABLES := libiptc
 IPTABLES += libext
 IPTABLES += iptables
 
-#KERNEL_TESTS
-KERNEL_TESTS := mm-audio-native-test
 
 #KEYPAD
 KEYPAD := ffa-keypad_qwerty.kcm
@@ -555,11 +482,6 @@ LIBHWCOMPOSER += hwcomposer.qcs605
 LIBHWCOMPOSER += hwcomposer.$(MSMSTEPPE)
 LIBHWCOMPOSER += hwcomposer.$(TRINKET)
 
-#LIBAUDIOPARAM -- Exposing AudioParameter as dynamic library for SRS TruMedia to work
-LIBAUDIOPARAM := libaudioparameter
-
-#LIBAUDIORESAMPLER -- High-quality audio resampler
-LIBAUDIORESAMPLER := libaudio-resampler
 
 #LIBOPENCOREHW
 LIBOPENCOREHW := libopencorehw
@@ -593,14 +515,6 @@ LOC_API := libloc_api-rpc-qc
 #MEDIA_PROFILES
 MEDIA_PROFILES := media_profiles.xml
 
-#MM_AUDIO
-MM_AUDIO := libOmxAacDec
-MM_AUDIO += libOmxAacEnc
-MM_AUDIO += libOmxAmrEnc
-MM_AUDIO += libOmxEvrcEnc
-MM_AUDIO += libOmxMp3Dec
-MM_AUDIO += libOmxQcelp13Enc
-MM_AUDIO += libOmxAc3HwDec
 
 #MM_CORE
 MM_CORE := libmm-omxcore
@@ -804,10 +718,6 @@ PRODUCT_PACKAGES += $(ALSA_UCM)
 PRODUCT_PACKAGES += $(ANGLE)
 PRODUCT_PACKAGES += $(APPOPS_POLICY)
 PRODUCT_PACKAGES += $(ATRACE_HAL)
-PRODUCT_PACKAGES += $(AUDIO_HARDWARE)
-PRODUCT_PACKAGES += $(AUDIO_POLICY)
-PRODUCT_PACKAGES += $(AUDIO_WRAPPER)
-PRODUCT_PACKAGES += $(AUDIO_HAL_TEST_APPS)
 PRODUCT_PACKAGES += $(TINY_ALSA_TEST_APPS)
 PRODUCT_PACKAGES += $(AMPLOADER)
 PRODUCT_PACKAGES += $(APPS)
@@ -845,8 +755,6 @@ PRODUCT_PACKAGES += $(LIBCOPYBIT)
 PRODUCT_PACKAGES += $(LIBGRALLOC)
 PRODUCT_PACKAGES += $(LIBMEMTRACK)
 PRODUCT_PACKAGES += $(LIBLIGHTS)
-PRODUCT_PACKAGES += $(LIBAUDIOPARAM)
-PRODUCT_PACKAGES += $(LIBAUDIORESAMPLER)
 PRODUCT_PACKAGES += $(LIBOPENCOREHW)
 PRODUCT_PACKAGES += $(LIBOVERLAY)
 PRODUCT_PACKAGES += $(LIBHWCOMPOSER)
@@ -858,7 +766,6 @@ PRODUCT_PACKAGES += $(LIBQDMETADATA)
 PRODUCT_PACKAGES += $(LIBPOWER)
 PRODUCT_PACKAGES += $(LOC_API)
 PRODUCT_PACKAGES += $(MEDIA_PROFILES)
-PRODUCT_PACKAGES += $(MM_AUDIO)
 PRODUCT_PACKAGES += $(MM_CORE)
 PRODUCT_PACKAGES += $(MM_WFD)
 PRODUCT_PACKAGES += $(MM_VIDEO)
