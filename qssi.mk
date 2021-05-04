@@ -22,6 +22,9 @@ PRODUCT_BUILD_ODM_IMAGE := false
 PRODUCT_BUILD_CACHE_IMAGE := false
 PRODUCT_BUILD_USERDATA_IMAGE := false
 
+# Enable debugfs restrictions
+PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
+
 #Also, there is no need to build an OTA package as this will be done later
 #when we combine this system build with the non-system images.
 TARGET_SKIP_OTA_PACKAGE := true
