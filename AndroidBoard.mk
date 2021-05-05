@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 #----------------------------------------------------------------------
 # Host compiler configs
 #----------------------------------------------------------------------
-SOURCE_ROOT := $(shell pwd)
+SOURCE_ROOT := $(abspath .)
 TARGET_HOST_COMPILER_PREFIX_OVERRIDE := prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/bin/x86_64-linux-
 TARGET_HOST_CC_OVERRIDE := $(SOONG_LLVM_PREBUILTS_PATH)/clang
 TARGET_HOST_CXX_OVERRIDE := $(TARGET_HOST_COMPILER_PREFIX_OVERRIDE)g++
@@ -79,6 +79,6 @@ include vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk
 $(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware)
 
 # override default make with prebuilt make path (if any)
-ifneq (, $(wildcard $(shell pwd)/prebuilts/build-tools/linux-x86/bin/make))
-   MAKE := $(shell pwd)/prebuilts/build-tools/linux-x86/bin/$(MAKE)
+ifneq (, $(wildcard $(SOURCE_ROOT)/prebuilts/build-tools/linux-x86/bin/make))
+   MAKE := $(SOURCE_ROOT)/prebuilts/build-tools/linux-x86/bin/$(MAKE)
 endif
