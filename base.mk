@@ -986,6 +986,10 @@ PRODUCT_PACKAGES += libvndfwk_detect_jni.qti
 PRODUCT_PACKAGES += libqti_vndfwk_detect
 PRODUCT_PACKAGES += libvndfwk_detect_jni.qti.vendor
 PRODUCT_PACKAGES += libqti_vndfwk_detect.vendor
+PRODUCT_PACKAGES += libqti_vndfwk_detect_system
+PRODUCT_PACKAGES += libqti_vndfwk_detect_vendor
+PRODUCT_PACKAGES += libvndfwk_detect_jni.qti_system
+PRODUCT_PACKAGES += libvndfwk_detect_jni.qti_vendor
 
 #add thermal 2.0 hal lib to product packages
 PRODUCT_PACKAGES += android.hardware.thermal@2.0
