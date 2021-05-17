@@ -139,6 +139,9 @@ qemu.hw.mainkeys=0
 #Expose aux camera for below packages
 vendor.camera.aux.packagelist=org.codeaurora.snapcam
 
+#Add snapcam in privapp list
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam
+
 #enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
 
