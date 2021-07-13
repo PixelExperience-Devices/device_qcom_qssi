@@ -164,7 +164,7 @@ endif
 DIRECTED_VENDOR_SNAPSHOT := true
 DIRECTED_RECOVERY_SNAPSHOT := true
 DIRECTED_RAMDISK_SNAPSHOT := true
--include vendor/qcom/vsdk-configs/snapshot_modules/*/*.mk
+-include vendor/qcom/configs/snapshot_modules/*/*.mk
 
 #################################################################################
 # This is the End of BoardConfig.mk file.
