@@ -19,6 +19,7 @@ DEVICE_PROVISIONED=1
 ro.telephony.default_network=33,33
 
 dalvik.vm.heapsize=36m
+dalvik.vm.dex2oat64.enabled=true
 dev.pm.dyn_samplingrate=1
 
 #ro.hdmi.enable=true
