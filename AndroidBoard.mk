@@ -83,5 +83,4 @@ ifneq (, $(wildcard $(SOURCE_ROOT)/prebuilts/build-tools/linux-x86/bin/make))
    MAKE := $(SOURCE_ROOT)/prebuilts/build-tools/linux-x86/bin/$(MAKE)
 endif
 
-# Include VSDK tooks
--include vendor/qcom/vsdk-configs/scripts/Android.mk
+-include vendor/qcom/configs/scripts/Android.mk
