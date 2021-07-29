@@ -3,10 +3,6 @@
 # Product-specific compile-time definitions.
 #
 
-
-TARGET_BOARD_PLATFORM := qssi
-TARGET_BOOTLOADER_BOARD_NAME := qssi
-
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a-branchprot
 TARGET_CPU_ABI := arm64-v8a

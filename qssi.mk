@@ -1,6 +1,9 @@
 #For QSSI, we build only the system image. Here we explicitly set the images
 #we build so there is no confusion.
 
+TARGET_BOARD_PLATFORM := qssi
+TARGET_BOOTLOADER_BOARD_NAME := qssi
+
 # Skip VINTF checks for kernel configs since we do not have kernel source
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
