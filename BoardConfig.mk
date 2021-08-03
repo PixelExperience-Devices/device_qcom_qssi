@@ -157,6 +157,11 @@ endif
 endif
 ###### Dynamic Partition Handling ####
 
+# Use sha256 for dm-verity partitions
+BOARD_AVB_SYSTEM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+BOARD_AVB_SYSTEM_EXT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+BOARD_AVB_PRODUCT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+
 DIRECTED_VENDOR_SNAPSHOT := true
 DIRECTED_RECOVERY_SNAPSHOT := true
 DIRECTED_RAMDISK_SNAPSHOT := true
