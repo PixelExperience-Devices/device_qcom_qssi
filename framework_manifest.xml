@@ -36,17 +36,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>AtCmdFwdService</instance>
         </interface>
     </hal>
-    <!--Sigma hal-->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.sigma_miracast</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>Isigma_miracast</name>
-            <instance>sigmahal</instance>
-            <instance>sigmahal64</instance>
-        </interface>
-    </hal>
     <!-- System Helper HAL Service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.systemhelper</name>
