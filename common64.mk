@@ -4,7 +4,6 @@ $(call inherit-product, device/qcom/qssi/base.mk)
 # Since we want use QC specific files, we should inherit
 # device-vendor.mk first to make sure QC specific files gets installed.
 $(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor-qssi.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 PRODUCT_BRAND := qcom

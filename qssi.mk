@@ -96,6 +96,7 @@ TARGET_USES_NEW_ION := true
 ENABLE_AB ?= true
 
 TARGET_DEFINES_DALVIK_HEAP := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, device/qcom/qssi/common64.mk)
 
 #Inherit all except heap growth limit from phone-xhdpi-2048-dalvik-heap.mk
