@@ -900,6 +900,9 @@ PRODUCT_PACKAGES += libvndfwk_detect_jni.qti_vendor
 #add thermal 2.0 hal lib to product packages
 PRODUCT_PACKAGES += android.hardware.thermal@2.0
 
+#add RemoteProvisioner to product packages
+PRODUCT_PACKAGES += RemoteProvisioner
+
 #soong namespace for qssi vs vendor differentiation
 SOONG_CONFIG_NAMESPACES += qssi_vs_vendor
 SOONG_CONFIG_qssi_vs_vendor += qssi_or_vendor
