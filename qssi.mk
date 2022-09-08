@@ -32,6 +32,7 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 #Also, there is no need to build an OTA package as this will be done later
 #when we combine this system build with the non-system images.
 TARGET_SKIP_OTA_PACKAGE := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 
 # Enable AVB 2.0
 BOARD_AVB_ENABLE := true
@@ -113,7 +114,7 @@ PRODUCT_DEVICE := $(VENDOR_QTI_DEVICE)
 PRODUCT_BRAND := qti
 PRODUCT_MODEL := qssi system image for arm64
 
-PRODUCT_EXTRA_VNDK_VERSIONS := 30 31 32
+PRODUCT_EXTRA_VNDK_VERSIONS := 30 31 32 33
 
 #Initial bringup flags
 TARGET_USES_AOSP := false
