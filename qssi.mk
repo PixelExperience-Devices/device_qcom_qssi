@@ -132,6 +132,8 @@ BOARD_FRP_PARTITION_NAME := frp
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
+PRODUCT_PACKAGES += fsck.exfat
+PRODUCT_PACKAGES += mkfs.exfat
 
 PRODUCT_BOOT_JARS += tcmiface
 PRODUCT_BOOT_JARS += telephony-ext
