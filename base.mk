@@ -813,6 +813,9 @@ PRODUCT_PACKAGES += libhealthd.msm
 PRODUCT_PACKAGES_DEBUG += init.qcom.test.rc
 PRODUCT_PACKAGES_DEBUG += init.qcom.debug.sh
 
+#enable qesdk commandline tool in debug mode
+PRODUCT_PACKAGES_DEBUG += qesdkcmdline
+
 #NANOPB_LIBRARY_NAME := libnanopb-c-2.8.0
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/android.software.verified_boot.xml
@@ -896,6 +899,9 @@ PRODUCT_PACKAGES += libvndfwk_detect_jni.qti_vendor
 
 #add thermal 2.0 hal lib to product packages
 PRODUCT_PACKAGES += android.hardware.thermal@2.0
+
+#add RemoteProvisioner to product packages
+PRODUCT_PACKAGES += RemoteProvisioner
 
 #soong namespace for qssi vs vendor differentiation
 SOONG_CONFIG_NAMESPACES += qssi_vs_vendor

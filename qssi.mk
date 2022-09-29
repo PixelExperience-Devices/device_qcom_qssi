@@ -32,6 +32,7 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 #Also, there is no need to build an OTA package as this will be done later
 #when we combine this system build with the non-system images.
 TARGET_SKIP_OTA_PACKAGE := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 
 # Enable AVB 2.0
 BOARD_AVB_ENABLE := true
@@ -42,7 +43,7 @@ BOARD_AVB_ENABLE := true
 
 # Retain the earlier default behavior i.e. ota config (dynamic partition was disabled if not set explicitly), so set
 # SHIPPING_API_LEVEL to 28 if it was not set earlier (this is generally set earlier via build.sh per-target)
-SHIPPING_API_LEVEL := 31
+SHIPPING_API_LEVEL := 33
 
 $(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/cne_url*.mk)
 
@@ -96,6 +97,7 @@ TARGET_USES_NEW_ION := true
 ENABLE_AB ?= true
 
 TARGET_DEFINES_DALVIK_HEAP := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, device/qcom/qssi/common64.mk)
 
 #Inherit all except heap growth limit from phone-xhdpi-2048-dalvik-heap.mk
@@ -112,7 +114,7 @@ PRODUCT_DEVICE := $(VENDOR_QTI_DEVICE)
 PRODUCT_BRAND := qti
 PRODUCT_MODEL := qssi system image for arm64
 
-PRODUCT_EXTRA_VNDK_VERSIONS := 30 31 32
+PRODUCT_EXTRA_VNDK_VERSIONS := 30 31 32 33
 
 #Initial bringup flags
 TARGET_USES_AOSP := false
@@ -274,9 +276,9 @@ else
 AUDIO_FEATURE_ENABLED_DLKM := false
 endif
 
-ifeq ($(ENABLE_VIRTUAL_AB), true)
-    $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-endif
+# Enable virtual A/B compression
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/android_t_baseline.mk)
+PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := gz
 
 # Include mainline components and QSSI whitelist
 ifeq (true,$(call math_gt_or_eq,$(SHIPPING_API_LEVEL),29))
