@@ -160,5 +160,3 @@ DIRECTED_RAMDISK_SNAPSHOT := true
 # Now, Pickup other split Board.mk files:
 #################################################################################
 -include vendor/qcom/defs/board-defs/system/*.mk
-#################################################################################
-include device/qcom/sepolicy/SEPolicy.mk
