@@ -154,9 +154,3 @@ DIRECTED_VENDOR_SNAPSHOT := true
 DIRECTED_RECOVERY_SNAPSHOT := true
 DIRECTED_RAMDISK_SNAPSHOT := true
 -include vendor/qcom/configs/snapshot_modules/*/*.mk
-
-#################################################################################
-# This is the End of BoardConfig.mk file.
-# Now, Pickup other split Board.mk files:
-#################################################################################
--include vendor/qcom/defs/board-defs/system/*.mk
