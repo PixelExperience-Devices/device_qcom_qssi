@@ -33,7 +33,6 @@ TARGET_KERNEL_DLKM_DISABLE := true
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
-BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 
 ifeq ($(ENABLE_AB), true)
 # Defines for enabling A/B builds
