@@ -5,7 +5,7 @@ soong_config_module_type {
     config_namespace: "aosp_vs_qva",
     variables: ["aosp_or_qva"],
     // Properties can be extended to other properties as well
-    properties: ["libs", "static_libs"],
+    properties: ["libs", "static_libs", "srcs"],
 }
 
 soong_config_module_type {
