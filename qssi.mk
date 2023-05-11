@@ -42,7 +42,7 @@ BOARD_AVB_ENABLE := true
 
 # Retain the earlier default behavior i.e. ota config (dynamic partition was disabled if not set explicitly), so set
 # SHIPPING_API_LEVEL to 28 if it was not set earlier (this is generally set earlier via build.sh per-target)
-SHIPPING_API_LEVEL := 33
+SHIPPING_API_LEVEL := 34
 
 $(call inherit-product-if-exists, vendor/qcom/defs/product-defs/system/cne_url*.mk)
 
