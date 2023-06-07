@@ -4,6 +4,9 @@
 TARGET_BOARD_PLATFORM := qssi
 TARGET_BOOTLOADER_BOARD_NAME := qssi
 
+# Opt out of 16K alignment changes
+PRODUCT_MAX_PAGE_SIZE_SUPPORTED := 4096
+
 # Skip VINTF checks for kernel configs since we do not have kernel source
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
