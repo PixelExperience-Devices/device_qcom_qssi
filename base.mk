@@ -819,6 +819,7 @@ PRODUCT_PACKAGES_DEBUG += qesdkcmdline
 #NANOPB_LIBRARY_NAME := libnanopb-c-2.8.0
 
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/android.software.verified_boot.xml
+PRODUCT_COPY_FILES += frameworks/native/data/etc/android.software.managed_users.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.managed_users.xml
 
 ifneq ($(strip $(TARGET_USES_RRO)),true)
 # enable overlays to use our version of
