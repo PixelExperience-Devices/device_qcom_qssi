@@ -25,6 +25,9 @@ value:2907
 [AID_VENDOR_QTR]
 value:2909
 
+[AID_VENDOR_QCC]
+value:2914
+
 [vendor/bin/wcnss_filter]
 mode: 0755
 user: AID_BLUETOOTH
